@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ page import="com.google.appengine.api.blobstore.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
       <meta charset="utf-8" />
@@ -48,7 +48,11 @@
 	}
                             );
     </script>
+    
+    <% BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService(); %>
+    
 </head>
+
 <body>
 
    <div id="wrapper">
@@ -119,7 +123,9 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">ออก
                     </div>
                 </div>
                 
- <form:form method="post" action="saveStudent.do" commandName="student">
+                
+                
+ <form:form method="post" action="saveStudent.do" commandName="student" enctype="multipart/form-data" >
 		<input type="hidden" name="keyString" value="${keyString }">
                      
                     <!--Address-->
@@ -131,6 +137,7 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">ออก
                         </div>
                         <div class="panel-body">
                             <p>
+                            Photo: <input type="file" name="photo"><br> 
                             Student ID: <form:input path="studentId" /><br />
 							First Name: <form:input path="firstName" /><br />
 							Last Name: <form:input path="lastName" /><br />

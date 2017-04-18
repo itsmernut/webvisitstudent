@@ -23,6 +23,9 @@
     </style>
   </head>
   <body>
+  
+  <a href="newLocation.do">Add New Location</a><br>
+ 
   <c:forEach items="${locationList}" var="location">
   <table border="1">
 			<tr>
@@ -31,7 +34,7 @@
 				<td><a href="editLocation.do?id=${location.keyString}">แก้ไข</a></td>
 			</tr>
 	</table>
-	<a href="newLocation.do">Add New Location</a><br>
+	
   
   
     <div id="map">

@@ -138,6 +138,7 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">ออก
                                         <tr>
                                             <th><center>การเยี่ยมบ้าน</center></th>
                                             <th><center>รหัสประจำตัว</center></th>
+                                            <th><center>รูปภาพ</center></th>
                                             <th><center>ชื่อ-นามสกุล</center></th>
                                             <th><center>อีเมล์</center></th>
                                             <th><center>ดูข้อมูลส่วนตัว</center></th>
@@ -158,6 +159,7 @@ font-size: 16px;"><a href="#" class="btn btn-danger square-btn-adjust">ออก
 											</c:otherwise>
 										</c:choose>
                                             <td><center>${student.studentId}</center></td>
+                                            <td><img src="${photo}" width="50" height="50" /></td>
                                             <td>${student.firstName}  ${student.lastName}</td>
                                             <td>${student.email}</td>
                                             <td><center><a href="studentProfile.do?id=${student.keyString}"><img src="assets/img/eye-close-up.png"></a></center></td>

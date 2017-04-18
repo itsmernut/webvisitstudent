@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mfu.dao.Level_DAO;
 import com.mfu.dao.Location_DAO;
 import com.mfu.entity.Location_Information;
 
@@ -58,6 +59,14 @@ public class Location_Controller {
 		}
 		locationServ.closeEntityManager();
 		return mv;
+	}
+	
+	@RequestMapping("/deleteLocationS")
+	public String deleteLocation(HttpServletRequest request) {
+		Location_DAO locationServ = new Location_DAO();
+		locationServ.deleteLocation(request.getParameter("id"));
+		locationServ.closeEntityManager();
+		return "redirect:viewLocation.do";
 	}
 	
 	@RequestMapping("/listLocation")
@@ -134,6 +143,8 @@ public class Location_Controller {
 			e.printStackTrace();
 		}
 		locationServ.closeEntityManager();
-		return "redirect:viewLocation.do?id=";
+		return "redirect:viewLocation.do";
 	}
+	
+	
 }
